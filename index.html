@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="lang-en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SWEET &amp; SOUR DOUGH | Healthy Bakery – Sourdough, Barley &amp; Whole-Grain Bread</title>
+<meta name="description" content="SWEET & SOUR DOUGH – healthy artisan bakery in Marsa Matrouh. Sourdough, barley bread, whole-grain bread, pastries, cakes and drinks. Order online in one click.">
+<link rel="icon" href="img/logo-mark-blue-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#9C5B3C; --blue-2:#B9824F; --blue-3:#E8C9A8; --blue-pale:#F6E8DC; --blue-deep:#4A2B1D;
+  --cream:#FAF8F5; --cocoa:#6E473B; --dark:#332118; --ink:#3C2E27; --muted:#7A6A5E;
+  --pink:#C96C5E; --pink-2:#F3DED6; --line:#E8E1DA; --white:#fff;
+  --shadow:0 14px 38px rgba(51,33,24,.14); --r:20px; --wa:#25D366;
+  --head:'Montserrat',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --body:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+html.lang-ar{--head:'Cairo',system-ui,sans-serif;--body:'Cairo',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--cream);color:var(--ink);line-height:1.75;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button,input,textarea,select{font:inherit;color:inherit}
+button{cursor:pointer;border:none;background:none}
+.wrap{width:min(1200px,92vw);margin-inline:auto}
+.head{font-family:var(--head)}
+.hidden{display:none!important}
+
+/* ============ SPLASH (matches the reference image) ============ */
+.splash{position:fixed;inset:0;z-index:200;display:flex;flex-direction:column;overflow:hidden;background:#efe7dd;
+  transition:opacity .6s ease,visibility .6s ease}
+.splash.hide{opacity:0;visibility:hidden;pointer-events:none}
+.splash-bg{position:absolute;inset:0;width:100%;height:100%;overflow:hidden}
+.splash-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 45%;opacity:0;transition:opacity 1.4s ease}
+.splash-bg img.show{opacity:1}
+.splash-veil{position:absolute;inset:0;pointer-events:none;
+  background:
+    linear-gradient(180deg,#ffffff 0%,rgba(255,255,255,.94) 12%,rgba(255,255,255,.66) 24%,rgba(255,255,255,.22) 36%,rgba(255,255,255,0) 48%),
+    linear-gradient(90deg,rgba(255,255,255,.55),rgba(255,255,255,0) 22%,rgba(255,255,255,0) 78%,rgba(255,255,255,.5))}
+.splash-top{position:relative;z-index:3;display:flex;align-items:flex-start;justify-content:space-between;gap:10px;
+  padding:calc(16px + env(safe-area-inset-top)) clamp(14px,4vw,30px) 0}
+.splash-brand{flex:1;text-align:center;padding-top:2px}
+.splash-brand img{width:clamp(48px,12.5vw,86px);height:auto;margin:0 auto 8px}
+.splash-brand b{display:block;color:var(--blue);font-family:'Montserrat',sans-serif;font-weight:500;
+  font-size:clamp(13px,4.4vw,29px);letter-spacing:.1em;line-height:1.2;white-space:nowrap}
+.splash-brand small{display:block;margin-top:7px;color:#B2A190;font-family:'Montserrat',sans-serif;font-weight:500;
+  font-size:clamp(7.5px,2.2vw,12.5px);letter-spacing:.4em}
+.icon-btn{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;color:var(--blue);flex:0 0 46px}
+.icon-btn:active{background:rgba(156,91,60,.1)}
+.burgerico{display:flex;flex-direction:column;justify-content:center;gap:5px;width:28px}
+.burgerico i{display:block;height:2.8px;border-radius:3px;background:var(--blue)}
+.splash-bottom{position:relative;z-index:3;margin-top:auto;display:grid;place-items:center;
+  padding:0 clamp(16px,5vw,30px) calc(34px + env(safe-area-inset-bottom))}
+.splash-cta{min-width:min(62vw,320px);padding:clamp(13px,3.6vw,18px) clamp(26px,7vw,40px);border-radius:999px;
+  background:linear-gradient(100deg,#A6633F 0%,#C98B5C 45%,#E9C79C 100%);color:#fff;font-family:var(--head);
+  font-weight:700;font-size:clamp(14px,4.1vw,20px);letter-spacing:.1em;text-transform:uppercase;
+  box-shadow:0 14px 30px rgba(166,99,63,.45),inset 0 1px 0 rgba(255,255,255,.75);transition:transform .2s,box-shadow .2s}
+.splash-cta:hover{transform:translateY(-2px);box-shadow:0 18px 34px rgba(166,99,63,.55),inset 0 1px 0 rgba(255,255,255,.8)}
+.wa-fab{position:fixed;z-index:220;inset-inline-start:clamp(10px,3vw,18px);top:52%;width:clamp(48px,13vw,60px);
+  height:clamp(48px,13vw,60px);border-radius:50%;background:var(--wa);display:grid;place-items:center;
+  box-shadow:0 10px 26px rgba(37,211,102,.45),0 0 0 5px rgba(255,255,255,.35);transition:transform .2s}
+.wa-fab:hover{transform:scale(1.06)}
+.wa-fab svg{width:62%;height:62%;fill:#fff}
+
+/* ============ TOP BAR ============ */
+.topbar{background:var(--blue-deep);color:#F0E4D8;font-size:13.5px}
+.topbar .wrap{display:flex;flex-wrap:wrap;gap:6px 22px;align-items:center;justify-content:center;padding:9px 0;text-align:center}
+.topbar span{display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
+.topbar a:hover{color:#fff}
+
+/* ============ HEADER ============ */
+header{position:sticky;top:0;z-index:60;background:rgba(250,248,245,.93);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:12px;padding:11px 0}
+.brand{display:flex;align-items:center;gap:12px;margin-inline-end:auto;min-width:0}
+.brand img{width:54px;height:54px;object-fit:contain;flex:0 0 54px}
+.brand .bt{min-width:0}
+.brand b{font-family:var(--head);font-size:19px;letter-spacing:.04em;display:block;line-height:1.15;color:var(--blue)}
+.brand small{color:var(--muted);font-size:11.5px;letter-spacing:.22em;text-transform:uppercase}
+.links{display:flex;gap:2px;align-items:center}
+.links a{padding:9px 13px;border-radius:12px;font-weight:600;font-size:14.5px;color:var(--ink);transition:.2s}
+.links a:hover{background:var(--blue-pale);color:var(--blue)}
+.langsw{display:flex;gap:3px;background:var(--blue-pale);border-radius:12px;padding:4px;margin-inline-start:6px}
+.langsw button{padding:6px 10px;border-radius:9px;font-size:12.5px;font-weight:700;color:var(--blue);letter-spacing:.06em}
+.langsw button.on{background:var(--blue);color:#fff}
+.cartbtn{display:inline-flex;align-items:center;gap:8px;background:var(--blue);color:#fff;padding:11px 18px;border-radius:13px;font-weight:700;font-size:14.5px;position:relative;transition:.2s}
+.cartbtn:hover{background:var(--blue-deep)}
+.cartbtn .badge{background:#fff;color:var(--blue);border-radius:99px;min-width:23px;height:23px;display:grid;place-items:center;font-size:12.5px;font-weight:800}
+.burger{display:none;width:44px;height:44px;border-radius:12px;background:var(--blue-pale);color:var(--blue);font-size:19px}
+.mobilemenu{display:none;flex-direction:column;gap:4px;padding:10px 0 16px}
+.mobilemenu.open{display:flex}
+.mobilemenu a{padding:12px 14px;border-radius:12px;font-weight:600;background:#fff;border:1px solid var(--line)}
+
+/* ============ SECTIONS ============ */
+section{padding:76px 0;scroll-margin-top:90px}
+.sec-head{text-align:center;max-width:760px;margin:0 auto 34px}
+.sec-head .kicker{color:var(--blue-2);font-weight:700;letter-spacing:.24em;font-size:12.5px;text-transform:uppercase;font-family:var(--head)}
+.sec-head h2{font-family:var(--head);font-weight:700;font-size:clamp(29px,5vw,46px);color:var(--dark);margin:8px 0 10px;line-height:1.2}
+.sec-head p{color:var(--muted);font-size:16px}
+.alt{background:#fff}
+
+/* features */
+.feats{display:grid;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));gap:16px;margin-top:-30px;position:relative;z-index:5}
+.feat{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:20px;display:flex;gap:14px;box-shadow:var(--shadow)}
+.feat .ic{width:48px;height:48px;flex:0 0 48px;border-radius:14px;background:var(--blue-pale);display:grid;place-items:center;font-size:22px}
+.feat b{display:block;color:var(--dark);font-size:16px;font-family:var(--head)}
+.feat p{color:var(--muted);font-size:14px;line-height:1.65;margin-top:3px}
+
+/* hero (below splash) */
+.hero{background:linear-gradient(180deg,var(--blue-pale) 0%,var(--cream) 100%);padding:56px 0 66px}
+.hero .grid2{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+.hero h1{font-family:var(--head);font-size:clamp(32px,5.6vw,58px);line-height:1.08;color:var(--blue-deep);font-weight:700}
+.hero h1 em{font-style:normal;color:var(--pink)}
+.hero .sub{font-size:clamp(17px,2.4vw,22px);color:var(--cocoa);font-family:var(--head);font-weight:600;margin-top:10px}
+.campaign-badge{display:inline-flex;align-items:center;gap:8px;background:var(--pink-2);color:var(--blue-deep);border:1px solid var(--pink);font-weight:700;font-size:13px;padding:8px 16px;border-radius:99px;margin-bottom:14px;font-family:var(--head)}
+.hero p.lead{color:#5E5047;font-size:16.5px;margin-top:14px;max-width:56ch}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:14px 24px;border-radius:14px;font-weight:700;font-size:15.5px;font-family:var(--head);transition:.2s;border:1px solid transparent}
+.btn-main{background:var(--blue);color:#fff;box-shadow:0 10px 24px rgba(156,91,60,.3)}
+.btn-main:hover{background:var(--blue-deep)}
+.btn-ghost{background:#fff;color:var(--blue);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--blue-2)}
+.btn-wa{background:var(--wa);color:#fff;box-shadow:0 10px 24px rgba(37,211,102,.3)}
+.btn-wa:hover{background:#1EBE5A}
+.btn-line{background:transparent;border-color:var(--line);color:var(--cocoa)}
+.hero .ph{border-radius:26px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:4/3;position:relative}
+.hero .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.4s ease}
+.hero .ph img.show{opacity:1}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.pill{background:#fff;border:1px solid var(--line);color:var(--cocoa);font-size:13px;font-weight:600;padding:7px 14px;border-radius:99px}
+.pill.b{background:var(--blue-pale);border-color:#EAD9C4;color:var(--blue)}
+
+/* healthy band */
+.healthy{background:var(--blue-deep);color:#fff;border-radius:28px;padding:clamp(26px,4vw,44px);
+  display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:center;position:relative;overflow:hidden}
+.healthy:before{content:"";position:absolute;inset-inline-end:-70px;top:-70px;width:230px;height:230px;border-radius:50%;background:rgba(255,255,255,.06)}
+.healthy .kicker{color:var(--blue-3);font-weight:700;letter-spacing:.22em;font-size:12px;text-transform:uppercase;font-family:var(--head)}
+.healthy h2{font-family:var(--head);font-size:clamp(24px,3.6vw,38px);margin:8px 0 12px;line-height:1.25}
+.healthy p.hl{font-size:clamp(16px,2.2vw,20px);background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);
+  border-radius:18px;padding:16px 18px;line-height:1.65}
+.healthy ul{list-style:none;display:grid;gap:10px;margin-top:6px}
+.healthy li{display:flex;gap:10px;align-items:flex-start;font-size:15px;color:#F0E0D2}
+.healthy li i{color:var(--blue-3);font-style:normal;font-weight:800}
+.healthy .ph{border-radius:20px;overflow:hidden;aspect-ratio:1/1;box-shadow:0 20px 40px rgba(0,0,0,.25)}
+.healthy .ph img{width:100%;height:100%;object-fit:cover}
+
+/* menu */
+.tabs{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:26px}
+.tab{padding:11px 20px;border-radius:99px;background:#fff;border:1px solid var(--line);font-weight:700;color:var(--cocoa);transition:.2s;font-size:14.5px}
+.tab:hover{border-color:var(--blue-2)}
+.tab.active{background:var(--blue);border-color:var(--blue);color:#fff}
+.menu-note{background:var(--blue-pale);border:1px dashed #D9B98C;border-radius:16px;padding:14px 18px;margin:0 auto 24px;max-width:820px;
+  text-align:center;color:var(--blue-deep);font-weight:600;font-size:15px;display:flex;gap:10px;align-items:center;justify-content:center}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));gap:22px}
+.card{background:#fff;border-radius:var(--r);overflow:hidden;box-shadow:0 8px 24px rgba(51,33,24,.08);display:flex;flex-direction:column;transition:.25s;border:1px solid #F1EDE8}
+.card:hover{transform:translateY(-5px);box-shadow:0 18px 42px rgba(51,33,24,.15)}
+.card .thumb{position:relative;height:188px;overflow:hidden;background:var(--blue-pale)}
+.card .thumb img{width:100%;height:100%;object-fit:cover;transition:.55s}
+.card:hover .thumb img{transform:scale(1.06)}
+.chip{position:absolute;top:12px;inset-inline-end:12px;background:rgba(255,255,255,.95);color:var(--blue-deep);font-size:11.5px;font-weight:700;padding:5px 12px;border-radius:99px;box-shadow:0 3px 10px rgba(0,0,0,.08)}
+.chip.health{background:#E8F7EE;color:#1D6B3A}
+.card .body{padding:16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card h3{font-size:17px;color:var(--dark);font-weight:700;font-family:var(--head);line-height:1.35}
+.card .desc{font-size:13.5px;color:var(--muted);line-height:1.65;flex:1}
+.card .row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:4px}
+.price{font-weight:800;color:var(--blue);font-size:17.5px}
+.add{background:var(--blue);color:#fff;padding:10px 16px;border-radius:12px;font-weight:700;font-size:14px;transition:.2s}
+.add:hover{background:var(--blue-deep)}
+.add.done{background:var(--cocoa)}
+
+/* about */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+.about .ph{border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow)}
+.about .ph img{width:100%;height:100%;object-fit:cover;min-height:330px}
+.about h2{font-family:var(--head);font-size:clamp(27px,4.3vw,42px);color:var(--dark);margin-bottom:12px}
+.about p{color:#5A4C43;margin-bottom:14px}
+.owner{background:#fff;border-radius:var(--r);padding:18px 20px;box-shadow:var(--shadow);display:flex;gap:14px;align-items:center;margin-top:8px}
+.owner .av{width:52px;height:52px;flex:0 0 52px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-weight:800;font-size:20px}
+.owner b{display:block;color:var(--dark)}
+.owner span{font-size:13.5px;color:var(--muted)}
+
+/* contact */
+.contactgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));gap:18px}
+.cbox{background:#fff;border-radius:var(--r);padding:24px;box-shadow:0 8px 24px rgba(51,33,24,.07);border:1px solid #F1EDE8;text-align:center}
+.cbox .ic{width:54px;height:54px;margin:0 auto 12px;border-radius:16px;background:var(--blue-pale);display:grid;place-items:center;font-size:24px}
+.cbox b{display:block;color:var(--dark);margin-bottom:4px;font-family:var(--head)}
+.cbox a,.cbox p{color:var(--muted);font-size:15px;word-break:break-word}
+.cbox a:hover{color:var(--blue)}
+.cta-band{margin-top:34px;background:var(--blue-deep);color:#fff;border-radius:26px;padding:34px;display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between}
+.cta-band h3{font-size:clamp(20px,3vw,27px);font-weight:700;font-family:var(--head)}
+.cta-band p{color:#EEDFD0;font-size:15px}
+
+/* footer */
+footer{background:#241711;color:#D9CABC;padding:48px 0 26px;margin-top:20px}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px}
+footer h4{color:#fff;font-size:16px;margin-bottom:12px;font-family:var(--head)}
+footer a,footer p{color:#BFAE9E;font-size:14.5px}
+footer a:hover{color:#fff}
+.fbottom{border-top:1px solid rgba(255,255,255,.12);margin-top:28px;padding-top:18px;text-align:center;font-size:13.5px;color:#A89484}
+
+/* cart + drawer */
+.fab-cart{position:fixed;inset-inline-end:18px;bottom:18px;z-index:70;background:var(--blue);color:#fff;border-radius:99px;
+  padding:14px 20px;display:inline-flex;align-items:center;gap:10px;font-weight:800;box-shadow:0 14px 30px rgba(156,91,60,.45);font-family:var(--head)}
+.fab-cart:hover{background:var(--blue-deep)}
+.fab-cart .n{background:#fff;color:var(--blue);border-radius:99px;min-width:24px;height:24px;display:grid;place-items:center;font-size:13px}
+.overlay{position:fixed;inset:0;background:rgba(36,23,17,.5);z-index:80;opacity:0;pointer-events:none;transition:.3s}
+.overlay.show{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;inset-inline-end:0;height:100%;width:min(430px,100%);background:var(--cream);z-index:90;
+  transform:translateX(105%);transition:transform .34s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;box-shadow:-16px 0 40px rgba(0,0,0,.2)}
+html[dir="rtl"] .drawer{inset-inline-end:auto;inset-inline-start:0;transform:translateX(105%);box-shadow:-16px 0 40px rgba(0,0,0,.2)}
+.drawer.open{transform:translateX(0)!important}
+.drawer>header{position:static;background:#fff;border-bottom:1px solid var(--line);padding:16px 20px;display:flex;align-items:center;justify-content:space-between}
+.drawer>header b{font-size:17px;color:var(--dark);font-family:var(--head)}
+.close{width:38px;height:38px;border-radius:11px;background:var(--blue-pale);color:var(--dark);font-size:18px;display:grid;place-items:center}
+.cart-items{flex:1;overflow-y:auto;padding:16px 18px;display:flex;flex-direction:column;gap:12px}
+.ci{background:#fff;border-radius:15px;padding:12px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 14px rgba(51,33,24,.07)}
+.ci img{width:62px;height:62px;flex:0 0 62px;border-radius:12px;object-fit:cover}
+.ci .info{flex:1;min-width:0}
+.ci b{display:block;font-size:14.5px;color:var(--dark);line-height:1.4}
+.ci .pp{font-size:13px;color:var(--muted)}
+.qty{display:flex;align-items:center;gap:8px}
+.qty button{width:30px;height:30px;border-radius:9px;background:var(--blue-pale);color:var(--dark);font-weight:800;font-size:16px;display:grid;place-items:center}
+.qty button:hover{background:var(--blue);color:#fff}
+.qty span{min-width:22px;text-align:center;font-weight:700}
+.empty{text-align:center;color:var(--muted);padding:50px 10px}
+.drawer>footer{background:#fff;border-top:1px solid var(--line);padding:16px 20px;margin:0}
+.tot{display:flex;justify-content:space-between;font-weight:800;color:var(--dark);font-size:18px;margin-bottom:12px;font-family:var(--head)}
+.drawer .btn{width:100%;justify-content:center}
+
+/* modal */
+.modal{position:fixed;inset:0;z-index:100;display:none;place-items:center;padding:16px}
+.modal.open{display:grid}
+.modal .sheet{background:var(--cream);border-radius:24px;width:min(580px,100%);max-height:92vh;overflow-y:auto;padding:26px;box-shadow:0 30px 70px rgba(0,0,0,.35);position:relative}
+.modal h3{font-family:var(--head);font-size:27px;color:var(--dark);margin-bottom:4px}
+.modal .sub{color:var(--muted);font-size:14.5px;margin-bottom:18px}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:14px;font-weight:700;color:var(--dark);margin-bottom:6px}
+.field input,.field textarea,.field select{width:100%;padding:13px 15px;border-radius:14px;border:1px solid var(--line);background:#fff;font-size:15px;transition:.2s}
+.field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--blue-2);box-shadow:0 0 0 4px rgba(185,130,79,.18)}
+.field textarea{min-height:82px;resize:vertical}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.summary{background:#fff;border:1px dashed var(--blue-2);border-radius:16px;padding:14px;margin:6px 0 16px;font-size:14.5px}
+.summary div{display:flex;justify-content:space-between;gap:10px;padding:3px 0;color:#5A4C43}
+.summary .g{font-weight:800;color:var(--dark);border-top:1px solid var(--line);margin-top:6px;padding-top:8px;font-size:16px}
+.err{color:#C0392B;font-size:14px;font-weight:600;margin-top:8px}
+.notice{background:#EAF9EF;border:1px solid #BFE9CE;color:#1D6B3A;border-radius:14px;padding:12px 14px;font-size:14px;margin-top:12px}
+.hint{font-size:12.5px;color:var(--muted);margin-top:6px}
+.toast{position:fixed;bottom:96px;inset-inline-start:50%;transform:translateX(-50%) translateY(20px);background:var(--dark);color:#fff;
+  padding:13px 22px;border-radius:14px;font-weight:700;font-size:14.5px;z-index:120;opacity:0;pointer-events:none;transition:.3s;max-width:90vw;text-align:center}
+html[dir="rtl"] .toast{transform:translateX(50%) translateY(20px)}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+html[dir="rtl"] .toast.show{transform:translateX(50%) translateY(0)}
+
+/* lang popover (splash) */
+.langpop{position:fixed;z-index:230;inset-inline-end:clamp(12px,4vw,26px);top:calc(74px + env(safe-area-inset-top));
+  background:#fff;border-radius:16px;box-shadow:0 20px 44px rgba(51,33,24,.22);padding:10px;display:none;min-width:196px;border:1px solid var(--line)}
+.langpop.open{display:block}
+.langpop .lt{font-size:12px;font-weight:700;color:var(--muted);letter-spacing:.16em;text-transform:uppercase;padding:4px 10px 8px;font-family:var(--head)}
+.langpop button{display:flex;width:100%;align-items:center;gap:10px;padding:11px 12px;border-radius:11px;font-weight:600;font-size:15px;text-align:start}
+.langpop button:hover{background:var(--blue-pale)}
+.langpop button.on{background:var(--blue);color:#fff}
+.langpop button .flag{font-size:18px}
+
+@media (max-width:980px){
+  .links,.langsw{display:none}
+  .burger{display:grid;place-items:center}
+  .about,.hero .grid2{grid-template-columns:1fr;gap:26px}
+  .fgrid{grid-template-columns:1fr 1fr}
+  .healthy{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  section{padding:56px 0}
+  .topbar .wrap{padding:7px 0;font-size:12px}
+  .brand img{width:46px;height:46px;flex:0 0 46px}
+  .brand b{font-size:16.5px}
+  .brand small{display:none}
+  .cartbtn{padding:11px 13px;font-size:0;gap:0}
+  .cartbtn .txt{display:none}
+  .cartbtn .ico{font-size:18px}
+  .grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px}
+  .card .thumb{height:134px}
+  .card .body{padding:12px;gap:6px}
+  .card h3{font-size:15px}
+  .card .desc{font-size:12.5px}
+  .add{padding:9px 13px;font-size:13px}
+  .price{font-size:15.5px}
+  .feats{margin-top:0}
+  .fgrid{grid-template-columns:1fr}
+  .cta-band{padding:26px}
+  .two{grid-template-columns:1fr}
+  .modal .sheet{padding:20px;border-radius:20px}
+}
+</style>
+</head>
+<body class="splash-open">
+
+<!-- ================= SPLASH (exactly like the reference screen) ================= -->
+<div class="splash" id="splash">
+  <div class="splash-bg" id="splashBg">
+    <img data-img="hero-splash.jpg" alt="Hand slicing a fresh-baked sourdough loaf" class="show">
+    <img data-img="loaf.jpg" alt="Crusty sourdough loaf dusted with flour">
+    <img data-img="bread2.jpg" alt="Sliced baguette showing an airy crumb">
+    <img data-img="cookies.jpg" alt="Fresh-baked chocolate chip cookies">
+    <img data-img="coffee.jpg" alt="Iced coffee served at the bakery">
+  </div>
+  <div class="splash-veil"></div>
+  <div class="splash-top">
+    <button class="icon-btn" id="splashBurger" aria-label="Menu">
+      <span class="burgerico"><i></i><i></i><i></i></span>
+    </button>
+    <div class="splash-brand">
+      <img src="img/logo-mark-blue.png" alt="SWEET &amp; SOUR DOUGH">
+      <b>SWEET &amp; SOUR DOUGH</b>
+      <small id="splashTag">ARTISAN BAKERY</small>
+    </div>
+    <button class="icon-btn" id="splashLang" aria-label="Language">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 12.5a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm0 1.8c-3.6 0-7 1.9-7 4.3V21h14v-2.4c0-2.4-3.4-4.3-7-4.3Z"/>
+      </svg>
+    </button>
+  </div>
+  <div class="splash-bottom">
+    <button class="splash-cta" id="splashCta" onclick="enterSite('menu')"><span data-i18n="hero.cta1">ORDER NOW</span></button>
+  </div>
+</div>
+
+<!-- language popover -->
+<div class="langpop" id="langpop">
+  <div class="lt" id="langpopTitle">Choose your language</div>
+  <button data-lang="en" onclick="setLang('en')"><span class="flag">🇬🇧</span> English</button>
+  <button data-lang="ar" onclick="setLang('ar')"><span class="flag">🇪🇬</span> العربية</button>
+  <button data-lang="fr" onclick="setLang('fr')"><span class="flag">🇫🇷</span> Français</button>
+</div>
+
+<!-- floating WhatsApp -->
+<a class="wa-fab" id="waFab" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.03 5.2c-5.94 0-10.77 4.82-10.78 10.76 0 1.9.5 3.75 1.44 5.38L5.2 26.8l5.6-1.46a10.7 10.7 0 0 0 5.22 1.34h.01c5.94 0 10.77-4.82 10.78-10.76a10.7 10.7 0 0 0-3.15-7.62 10.7 10.7 0 0 0-7.63-3.1Zm0 19.6h-.01a8.9 8.9 0 0 1-4.53-1.24l-.32-.19-3.37.88.9-3.28-.21-.34a8.87 8.87 0 0 1-1.36-4.73c0-4.93 4.02-8.94 8.95-8.94a8.9 8.9 0 0 1 8.94 8.95c0 4.93-4.02 8.94-8.94 8.94Zm4.9-6.7c-.27-.13-1.6-.79-1.84-.88-.25-.09-.43-.13-.61.13-.18.27-.7.88-.86 1.06-.16.18-.31.2-.58.07a7.3 7.3 0 0 1-2.14-1.32 8.06 8.06 0 0 1-1.48-1.84c-.16-.27-.02-.42.11-.55.12-.12.27-.31.4-.47.13-.16.18-.27.27-.45.09-.18.04-.34-.02-.47-.07-.13-.6-1.46-.83-2-.22-.53-.44-.46-.61-.47h-.52c-.18 0-.47.07-.72.34-.24.27-.94.92-.94 2.24s.96 2.6 1.1 2.78c.13.18 1.9 2.9 4.6 3.96.64.28 1.14.44 1.53.56.65.2 1.24.18 1.7.11.52-.08 1.6-.65 1.83-1.29.22-.63.22-1.18.16-1.29-.07-.11-.25-.18-.52-.31Z"/></svg>
+</a>
+
+<!-- ================= TOP BAR ================= -->
+<div class="topbar">
+  <div class="wrap">
+    <span>📍 <span data-i18n="tb.loc">Marsa Matrouh – Alam El Roum</span></span>
+    <span>📞 <a href="tel:+201009004343" dir="ltr">0100 900 4343</a></span>
+    <span>🕘 <span data-i18n="tb.hours">Daily 9:00 AM – 4:00 PM</span></span>
+    <span>🏷️ <span data-i18n="tb.promo">10% off pre-orders placed a day ahead</span></span>
+  </div>
+</div>
+
+<!-- ================= HEADER ================= -->
+<header>
+  <div class="wrap">
+    <div class="nav">
+      <a href="#top" class="brand">
+        <img src="img/logo-mark-blue.png" alt="SWEET &amp; SOUR DOUGH">
+        <span class="bt">
+          <b>SWEET &amp; SOUR DOUGH</b>
+          <small data-i18n="brand.tag">Healthy Bakery – Marsa Matrouh</small>
+        </span>
+      </a>
+      <nav class="links">
+        <a href="#top" data-i18n="nav.home">Home</a>
+        <a href="#menu" data-i18n="nav.menu">Menu</a>
+        <a href="#about" data-i18n="nav.about">About</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
+      </nav>
+      <div class="langsw" id="langsw"></div>
+      <button class="cartbtn" onclick="openCart()" aria-label="Cart">
+        <span class="ico">🛒</span><span class="txt" data-i18n="nav.cart">Cart</span>
+        <span class="badge" id="badge">0</span>
+      </button>
+      <button class="burger" id="burger" aria-label="Menu">☰</button>
+    </div>
+    <div class="mobilemenu" id="mobilemenu">
+      <a href="#top" data-i18n="nav.home">Home</a>
+      <a href="#menu" data-i18n="nav.menu">Menu</a>
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+      <a href="tel:+201009004343">📞 <span data-i18n="nav.call">Call us now</span></a>
+      <div class="langsw" style="display:flex;margin:6px 0 0;padding:6px" id="langswM"></div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<div id="top"></div>
+<div class="hero">
+  <div class="wrap">
+    <div class="grid2">
+      <div>
+        <div class="campaign-badge" data-i18n="campaign.tag">🍞 Not Just a Bread — Do you care about your health? We care.</div>
+        <div class="sec-head" style="text-align:start;margin:0 0 12px">
+          <div class="kicker" data-i18n="hero.kicker">Artisan bakery • baked fresh daily</div>
+        </div>
+        <h1>SWEET &amp; SOUR <em>DOUGH</em></h1>
+        <div class="sub" data-i18n="hero.sub">Sweet &amp; savoury — from our oven to your door</div>
+        <p class="lead" data-i18n="hero.lead">Natural sourdough bread, barley and whole-grain healthy breads, sandwiches, croissants, cakes, desserts and drinks. Order online in one click and it arrives as fresh as it left the oven.</p>
+        <div class="cta">
+          <a href="#menu" class="btn btn-main">🛍️ <span data-i18n="hero.cta1">Order now</span></a>
+          <a href="tel:+201009004343" class="btn btn-ghost">📞 <span data-i18n="hero.cta2">Call us</span></a>
+          <a id="heroWa" class="btn btn-wa" target="_blank" rel="noopener">💬 <span data-i18n="hero.cta3">WhatsApp</span></a>
+        </div>
+        <div class="pills">
+          <span class="pill b" data-i18n="pill.1">🌾 Barley bread</span>
+          <span class="pill b" data-i18n="pill.2">🌰 Whole-grain bread</span>
+          <span class="pill" data-i18n="pill.3">🥖 Natural sourdough</span>
+          <span class="pill" data-i18n="pill.4">🚚 Same-day delivery</span>
+          <span class="pill b" data-i18n="pill.5">🏷️ 10% off pre-orders — order a day ahead</span>
+        </div>
+      </div>
+      <div class="ph" id="heroPh">
+        <img data-img="hero-splash.jpg" alt="Freshly baked sourdough bread" class="show">
+        <img data-img="bread2.jpg" alt="Sliced baguette showing an airy crumb">
+        <img data-img="loaf.jpg" alt="Crusty sourdough loaf dusted with flour">
+        <img data-img="coffee.jpg" alt="Iced coffee served at the bakery">
+        <img data-img="cookies.jpg" alt="Fresh-baked chocolate chip cookies">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= FEATURES ================= -->
+<div class="wrap">
+  <div class="feats">
+    <div class="feat"><div class="ic">🥖</div><div><b data-i18n="f1t">Natural artisan oven</b><p data-i18n="f1p">100% natural sourdough fermented for 24 hours, with no industrial additives.</p></div></div>
+    <div class="feat"><div class="ic">🌾</div><div><b data-i18n="f2t">Healthy bread</b><p data-i18n="f2p">Barley, whole-grain and multigrain breads — baked for a balanced table.</p></div></div>
+    <div class="feat"><div class="ic">🍰</div><div><b data-i18n="f3t">Sweet &amp; savoury</b><p data-i18n="f3p">From cakes and cheesecake to savoury pastries and sandwiches — all in one place.</p></div></div>
+    <div class="feat"><div class="ic">💬</div><div><b data-i18n="f4t">Order in one click</b><p data-i18n="f4p">Pick your items, press “Order now” and the order goes straight to our WhatsApp.</p></div></div>
+  </div>
+</div>
+
+<!-- ================= HEALTHY BAND ================= -->
+<section style="padding-top:64px">
+  <div class="wrap">
+    <div class="healthy">
+      <div>
+        <div class="kicker" data-i18n="h.kicker">Healthy bakery</div>
+        <h2 data-i18n="h.title">All kinds of barley &amp; whole-grain bread</h2>
+        <p class="hl" data-i18n="h.line">All types of barley bread and whole-grain bread — healthy bread in general — are available here.</p>
+        <ul>
+          <li><i>✓</i><span data-i18n="h.l1">Barley bread (100% barley flour) — light and rich in fibre</span></li>
+          <li><i>✓</i><span data-i18n="h.l2">Whole-grain bread — keeps you full longer</span></li>
+          <li><i>✓</i><span data-i18n="h.l3">Bran, oats, seeds &amp; multigrain loaves</span></li>
+          <li><i>✓</i><span data-i18n="h.l4">No added sugar · No preservatives · Low-sodium options</span></li>
+        </ul>
+      </div>
+      <div class="ph"><img src="img/wholegrain-loaf.jpg" alt="Whole-grain healthy bread"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MENU ================= -->
+<section id="menu" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker" data-i18n="menu.kicker">Our menu</div>
+      <h2 data-i18n="menu.title">Menu</h2>
+      <p data-i18n="menu.desc">Pick what you like and hit “Add” — the cart totals everything, then press “Order now” to send it to our WhatsApp.</p>
+    </div>
+    <div class="menu-note">
+      <span>🌾</span>
+      <span data-i18n="menu.note">In our items: all kinds of barley bread and whole-grain bread (healthy bread in general) are available — ask us about today’s healthy bake.</span>
+    </div>
+    <div class="tabs" id="tabs"></div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <div class="wrap">
+    <div class="about">
+      <div class="ph"><img src="img/display.jpg" alt="SWEET &amp; SOUR DOUGH bakery"></div>
+      <div>
+        <div class="sec-head" style="text-align:start;margin:0 0 10px">
+          <div class="kicker" data-i18n="about.kicker">About us</div>
+          <h2 style="margin-inline:0" data-i18n="about.title">About the bakery</h2>
+        </div>
+        <p data-i18n="about.p1">At SWEET &amp; SOUR DOUGH we bake the natural way, 100%. Our sourdough dough ferments slowly and bakes in a stone oven until the crust crackles and the crumb stays soft. Alongside the bread we serve cakes, desserts, savoury sandwiches and drinks — everything prepared fresh every day.</p>
+        <p data-i18n="about.p2">We are in the heart of Marsa Matrouh – Alam El Roum, and our bakers work through the night so you wake up to warm bread. Ordering online is easy: choose, send it on WhatsApp, and we prepare and deliver.</p>
+        <div class="owner">
+          <div class="av">M</div>
+          <div>
+            <b>Mohamed Abd El Fattah Mohamed</b>
+            <span data-i18n="owner.role">Owner – SWEET &amp; SOUR DOUGH</span>
+          </div>
+        </div>
+        <div class="pills">
+          <span class="pill" data-i18n="ap.1">🔥 Fresh bread daily</span>
+          <span class="pill" data-i18n="ap.2">🕘 9:00 AM – 4:00 PM</span>
+          <span class="pill" data-i18n="ap.3">📍 Alam El Roum – Marsa Matrouh</span>
+          <span class="pill" data-i18n="ap.4">🌙 Ramadan offers</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker" data-i18n="contact.kicker">Contact us</div>
+      <h2 data-i18n="contact.title">Contact us</h2>
+      <p data-i18n="contact.desc">Need to ask about an item or book a large tray? Call us any time — we are here from 9 AM to 4 PM.</p>
+    </div>
+    <div class="contactgrid">
+      <div class="cbox"><div class="ic">📞</div><b data-i18n="c.phone">Phone</b>
+        <p><a href="tel:+201009004343" dir="ltr">0100 900 4343</a></p>
+        <p style="font-size:13px" data-i18n="c.owner">Mohamed Abd El Fattah Mohamed – Owner</p>
+      </div>
+      <div class="cbox"><div class="ic">📍</div><b data-i18n="c.addr">Address</b>
+        <p data-i18n="c.addr2">Marsa Matrouh – Alam El Roum</p>
+        <p style="font-size:13px"><a id="mapsLink" target="_blank" rel="noopener" data-i18n="c.map">Open on the map</a></p>
+      </div>
+      <div class="cbox"><div class="ic">🕘</div><b data-i18n="c.hours">Opening hours</b>
+        <p data-i18n="c.hours2">Daily: 9:00 AM – 4:00 PM</p>
+        <p style="font-size:13px" data-i18n="c.hours3">Ramadan offers available</p>
+      </div>
+      <div class="cbox"><div class="ic">💬</div><b data-i18n="c.wa">WhatsApp</b>
+        <p><a id="waLink2" target="_blank" rel="noopener" dir="ltr">+20 100 900 4343</a></p>
+        <p style="font-size:13px" data-i18n="c.wa2">The fastest way to confirm an order</p>
+      </div>
+    </div>
+    <div class="cta-band">
+      <div>
+        <h3 data-i18n="band.title">Ready to try the best sourdough in Matrouh?</h3>
+        <p data-i18n="band.desc">Order now and leave the rest to us — it arrives as fresh as it left the oven.</p>
+      </div>
+      <div class="cta">
+        <a href="#menu" class="btn btn-main">🛍️ <span data-i18n="hero.cta1">Order now</span></a>
+        <a href="tel:+201009004343" class="btn btn-ghost">📞 <span data-i18n="hero.cta2">Call us</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <h4>SWEET &amp; SOUR DOUGH</h4>
+        <p data-i18n="ft.about">Artisan bakery in Marsa Matrouh – Alam El Roum. Sweet &amp; savoury, natural sourdough, barley and whole-grain healthy bread, fresh desserts and drinks every day.</p>
+        <p style="margin-top:10px" data-i18n="ft.owner">Owner: Mohamed Abd El Fattah Mohamed</p>
+      </div>
+      <div>
+        <h4 data-i18n="ft.links">Quick links</h4>
+        <p><a href="#top" data-i18n="nav.home">Home</a></p>
+        <p><a href="#menu" data-i18n="nav.menu">Menu</a></p>
+        <p><a href="#about" data-i18n="nav.about">About</a></p>
+        <p><a href="#contact" data-i18n="nav.contact">Contact</a></p>
+      </div>
+      <div>
+        <h4 data-i18n="ft.contact">Get in touch</h4>
+        <p>📞 <a href="tel:+201009004343" dir="ltr">0100 900 4343</a></p>
+        <p>💬 <a id="waLink3" target="_blank" rel="noopener" data-i18n="ft.wa">WhatsApp</a></p>
+        <p>📘 <a href="https://www.facebook.com/share/1EeWzCNeaH/" target="_blank" rel="noopener" data-i18n="ft.fb">Facebook</a></p>
+        <p>📍 <span data-i18n="c.addr2">Marsa Matrouh – Alam El Roum</span></p>
+        <p>🕘 <span data-i18n="c.hours2">Daily: 9:00 AM – 4:00 PM</span></p>
+      </div>
+    </div>
+    <div class="fbottom">© <span id="year"></span> SWEET &amp; SOUR DOUGH — <span data-i18n="ft.rights">All rights reserved | Marsa Matrouh, Egypt</span></div>
+  </div>
+</footer>
+
+<!-- ================= FLOATING CART ================= -->
+<button class="fab-cart" onclick="openCart()">🛒 <span data-i18n="nav.cart">Cart</span> <span class="n" id="fabN">0</span></button>
+
+<!-- ================= CART DRAWER ================= -->
+<div class="overlay" id="overlay" onclick="closeAll()"></div>
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <header>
+    <b>🛒 <span data-i18n="cart.title">Your order</span></b>
+    <button class="close" onclick="closeAll()" aria-label="Close">✕</button>
+  </header>
+  <div class="cart-items" id="cartItems"></div>
+  <footer>
+    <div class="tot"><span data-i18n="cart.total">Total</span><span><span id="totVal">0</span> <span data-i18n="cur">EGP</span></span></div>
+    <button class="btn btn-main" id="checkoutBtn" onclick="openOrder()">✅ <span data-i18n="cart.order">Order now</span></button>
+    <button class="btn btn-line" style="margin-top:8px" onclick="closeAll()" data-i18n="cart.continue">Continue shopping</button>
+  </footer>
+</aside>
+
+<!-- ================= ORDER MODAL ================= -->
+<div class="modal" id="orderModal">
+  <div class="sheet">
+    <button class="close" style="position:absolute;inset-inline-end:18px;top:18px" onclick="closeAll()" aria-label="Close">✕</button>
+    <h3 data-i18n="m.title">Complete your order</h3>
+    <p class="sub" data-i18n="m.sub">Fill in your details and press “Send order on WhatsApp” — we build the full order message and send it to the bakery in one click.</p>
+    <div id="orderForm">
+      <div class="two">
+        <div class="field"><label for="cName" data-i18n="m.name">Name *</label><input id="cName" type="text" data-i18n-ph="m.namePh" placeholder="Your name" autocomplete="name"></div>
+        <div class="field"><label for="cPhone" data-i18n="m.phone">Mobile number *</label><input id="cPhone" type="tel" dir="ltr" placeholder="01xxxxxxxxx" autocomplete="tel"></div>
+      </div>
+      <div class="field"><label for="cMode" data-i18n="m.mode">Fulfilment</label>
+        <select id="cMode">
+          <option value="delivery" data-i18n="m.mode1">Delivery to address</option>
+          <option value="pickup" data-i18n="m.mode2">Pick up from the bakery</option>
+        </select>
+      </div>
+      <div class="field"><label for="cDate" data-i18n="m.date">Preferred date</label>
+        <input id="cDate" type="date">
+        <p class="hint" data-i18n="m.dateHint">Choose tomorrow or later and get 10% off — order today, pick up tomorrow.</p>
+      </div>
+      <div class="field" id="addrWrap"><label for="cAddr" data-i18n="m.addr">Full address</label><textarea id="cAddr" data-i18n-ph="m.addrPh" placeholder="Street, landmark, building / floor..."></textarea></div>
+      <div class="field"><label for="cNotes" data-i18n="m.notes">Order notes</label><textarea id="cNotes" data-i18n-ph="m.notesPh" placeholder="e.g. no sesame, write a name on the cake..."></textarea></div>
+      <div class="field"><label for="cPay" data-i18n="m.pay">Payment method</label>
+        <select id="cPay">
+          <option value="cash" data-i18n="m.pay1">Cash on delivery</option>
+          <option value="wallet" data-i18n="m.pay2">Vodafone Cash / InstaPay</option>
+        </select>
+      </div>
+      <div class="summary" id="orderSummary"></div>
+      <div class="err hidden" id="orderErr">⚠️ <span data-i18n="m.err">Please enter a valid name and mobile number.</span></div>
+      <button class="btn btn-wa" style="width:100%;justify-content:center" onclick="sendOrder()">💬 <span data-i18n="m.send">Send order on WhatsApp</span></button>
+      <button class="btn btn-line" style="width:100%;justify-content:center;margin-top:8px" onclick="sendOrder('copy')">📋 <span data-i18n="m.copy">Copy the order text</span></button>
+      <div class="notice hidden" id="orderNotice"></div>
+      <p class="hint" data-i18n="m.hint">Note: the order becomes a ready WhatsApp message to the bakery number — if WhatsApp is unavailable, use “Copy the order text” and send it as a message or call us.</p>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* =====================================================================
+   SWEET & SOUR DOUGH — trilingual ordering engine (EN / AR / FR)
+   ===================================================================== */
+const PHONE_LOCAL = '01009004343';
+const PHONE_WA    = '201009004343';
+const FB_PAGE     = 'https://www.facebook.com/share/1EeWzCNeaH/';
+
+/* ------------------------- translation dictionary ------------------------- */
+const I18N = {
+en:{
+ 'tb.loc':'Marsa Matrouh – Alam El Roum','tb.hours':'Daily 9:00 AM – 4:00 PM','tb.promo':'🏷️ 10% off pre-orders placed a day ahead',
+ 'brand.tag':'Healthy Bakery – Marsa Matrouh',
+ 'splash.tag':'ARTISAN BAKERY',
+ 'nav.home':'Home','nav.menu':'Menu','nav.about':'About','nav.contact':'Contact','nav.cart':'Cart','nav.call':'Call us now',
+ 'campaign.tag':'🍞 Not Just a Bread — Do you care about your health? We care.',
+ 'hero.kicker':'Artisan bakery • baked fresh daily','hero.sub':'Sweet & savoury — from our oven to your door',
+ 'hero.lead':'Natural sourdough bread, barley and whole-grain healthy breads, sandwiches, croissants, cakes, desserts and drinks. Order online in one click and it arrives as fresh as it left the oven.',
+ 'hero.cta1':'Order now','hero.cta2':'Call us','hero.cta3':'WhatsApp',
+ 'pill.1':'🌾 Barley bread','pill.2':'🌰 Whole-grain bread','pill.3':'🥖 Natural sourdough','pill.4':'🚚 Same-day delivery','pill.5':'🏷️ 10% off pre-orders — order a day ahead',
+ 'f1t':'Natural artisan oven','f1p':'100% natural sourdough fermented for 24 hours, with no industrial additives.',
+ 'f2t':'Healthy bread','f2p':'Barley, whole-grain and multigrain breads — baked for a balanced table.',
+ 'f3t':'Sweet & savoury','f3p':'From cakes and cheesecake to savoury pastries and sandwiches — all in one place.',
+ 'f4t':'Order in one click','f4p':'Pick your items, press “Order now” and the order goes straight to our WhatsApp.',
+ 'h.kicker':'Healthy bakery','h.title':'All kinds of barley & whole-grain bread',
+ 'h.line':'All types of barley bread and whole-grain bread — healthy bread in general — are available here.',
+ 'h.l1':'Barley bread (100% barley flour) — light and rich in fibre','h.l2':'Whole-grain bread — keeps you full longer',
+ 'h.l3':'Bran, oats, seeds & multigrain loaves','h.l4':'No added sugar · No preservatives · Low-sodium options',
+ 'menu.kicker':'Our menu','menu.title':'Menu','menu.desc':'Pick what you like and hit “Add” — the cart totals everything, then press “Order now” to send it to our WhatsApp.',
+ 'menu.note':'In our items: all kinds of barley bread and whole-grain bread (healthy bread in general) are available — ask us about today’s healthy bake.',
+ 'about.kicker':'About us','about.title':'About the bakery',
+ 'about.p1':'At SWEET & SOUR DOUGH we bake the natural way, 100%. Our sourdough dough ferments slowly and bakes in a stone oven until the crust crackles and the crumb stays soft. Alongside the bread we serve cakes, desserts, savoury sandwiches and drinks — everything prepared fresh every day.',
+ 'about.p2':'We are in the heart of Marsa Matrouh – Alam El Roum, and our bakers work through the night so you wake up to warm bread. Ordering online is easy: choose, send it on WhatsApp, and we prepare and deliver.',
+ 'owner.role':'Owner – SWEET & SOUR DOUGH',
+ 'ap.1':'🔥 Fresh bread daily','ap.2':'🕘 9:00 AM – 4:00 PM','ap.3':'📍 Alam El Roum – Marsa Matrouh','ap.4':'🌙 Ramadan offers',
+ 'contact.kicker':'Contact us','contact.title':'Contact us','contact.desc':'Need to ask about an item or book a large tray? Call us any time — we are here from 9 AM to 4 PM.',
+ 'c.phone':'Phone','c.owner':'Mohamed Abd El Fattah Mohamed – Owner','c.addr':'Address','c.addr2':'Marsa Matrouh – Alam El Roum',
+ 'c.map':'Open on the map','c.hours':'Opening hours','c.hours2':'Daily: 9:00 AM – 4:00 PM','c.hours3':'Ramadan offers available',
+ 'c.wa':'WhatsApp','c.wa2':'The fastest way to confirm an order',
+ 'band.title':'Ready to try the best sourdough in Matrouh?','band.desc':'Order now and leave the rest to us — it arrives as fresh as it left the oven.',
+ 'ft.about':'Artisan bakery in Marsa Matrouh – Alam El Roum. Sweet & savoury, natural sourdough, barley and whole-grain healthy bread, fresh desserts and drinks every day.',
+ 'ft.owner':'Owner: Mohamed Abd El Fattah Mohamed','ft.links':'Quick links','ft.contact':'Get in touch','ft.wa':'WhatsApp','ft.fb':'Facebook',
+ 'ft.rights':'All rights reserved | Marsa Matrouh, Egypt',
+ 'cart.title':'Your order','cart.total':'Total','cart.order':'Order now','cart.continue':'Continue shopping','cur':'EGP',
+ 'cart.empty':'Your cart is empty','cart.empty2':'Pick something from the menu to start your order',
+ 'm.title':'Complete your order','m.sub':'Fill in your details and press “Send order on WhatsApp” — we build the full order message and send it to the bakery in one click.',
+ 'm.name':'Name *','m.namePh':'Your name','m.phone':'Mobile number *','m.mode':'Fulfilment','m.mode1':'Delivery to address','m.mode2':'Pick up from the bakery',
+ 'm.date':'Preferred date','m.dateHint':'Choose tomorrow or later and get 10% off — order today, pick up tomorrow.',
+ 'm.addr':'Full address','m.addrPh':'Street, landmark, building / floor...','m.notes':'Order notes','m.notesPh':'e.g. no sesame, write a name on the cake...',
+ 'm.pay':'Payment method','m.pay1':'Cash on delivery','m.pay2':'Vodafone Cash / InstaPay',
+ 'm.err':'Please enter a valid name and mobile number.','m.send':'Send order on WhatsApp','m.copy':'Copy the order text',
+ 'm.hint':'Note: the order becomes a ready WhatsApp message to the bakery number — if WhatsApp is unavailable, use “Copy the order text” and send it as a message or call us.',
+ 'lang.title':'Choose your language',
+ 't.add':'+ Add','t.inCart':'In cart','t.remove':'Remove',
+ 'o.title':'New order from the SWEET & SOUR DOUGH website','o.name':'Name','o.phone':'Mobile','o.mode':'Fulfilment','o.addr':'Address','o.date':'Date',
+ 'o.pay':'Payment','o.details':'Order details','o.subtotal':'Subtotal','o.discount':'Pre-order discount (10%)','o.total':'Total','o.notes':'Notes','o.time':'Order time','o.bakery':'Bakery: Marsa Matrouh – Alam El Roum',
+ 'o.delivery':'Delivery to address','o.pickup':'Pick up from the bakery','o.cash':'Cash on delivery','o.wallet':'Vodafone Cash / InstaPay',
+ 'a.added':'✅ Added: ','a.cleared':'🗑️ Cart cleared','a.emptyCart':'⚠️ Your cart is empty — pick items first',
+ 'a.copied':'📋 Order text copied — send it to us on WhatsApp','a.copyPrompt':'Copy the order text:',
+ 'a.sent':'💬 Order message is ready on WhatsApp','a.copiedTitle':'Order text','a.ok':'Sent',
+ 'a.notice':'We prepared the WhatsApp order message (%s items – total %t).<br>If WhatsApp is not available, call us on','a.follow':'Follow us on',
+ 'tag.popular':'Best seller','tag.health':'Healthy','tag.fresh':'Fresh in the morning','tag.occasions':'Occasions','tag.new':'New','tag.offer':'Offer',
+ 'cat.all':'All items','cat.healthy':'Healthy bread','cat.bread':'Sourdough bread','cat.pastry':'Pastry & feteer',
+ 'cat.sandwich':'Savoury sandwiches','cat.cake':'Cakes','cat.sweet':'Desserts','cat.drinks':'Drinks','cat.offers':'Ramadan offers',
+ 'mi.h1.n':'Barley bread (100% barley)','mi.h1.d':'Baked with pure barley flour — light on the stomach and rich in fibre.',
+ 'mi.h2.n':'Whole-grain loaf','mi.h2.d':'Whole-grain flour with the bran kept — keeps you full for longer.',
+ 'mi.h3.n':'Seeds & multigrain loaf','mi.h3.d':'Oats, flax, sesame and sunflower seeds in a soft whole-grain crumb.',
+ 'mi.b1.n':'Classic sourdough boule','mi.b1.d':'100% natural sourdough with a crisp, crackling crust.',
+ 'mi.b2.n':'French baguette','mi.b2.d':'Long baguette — soft inside and crunchy outside.','mi.b3.n':'Bran & oat baguette','mi.b3.d':'Half-brown baguette with bran and oats — lighter than white bread.',
+ 'mi.p1.n':'Butter croissant','mi.p1.d':'French croissant with flaky layers — baked every morning.',
+ 'mi.p2.n':'Chocolate croissant','mi.p2.d':'Filled with a rich chocolate cream.','mi.p3.n':'Plain meshaltet feteer','mi.p3.d':'Layered Egyptian feteer — serve it with honey or cheese.',
+ 'mi.s1.n':'Sourdough chicken sandwich','mi.s1.d':'Grilled chicken breast, lettuce, tomato and our house sauce on sourdough.',
+ 'mi.s2.n':'Sourdough tuna sandwich','mi.s2.d':'Tuna with olive oil, pickles and mayonnaise.','mi.s3.n':'Mixed cheese toast','mi.s3.d':'Mozzarella, cheddar and roumy, melted on sourdough.',
+ 'mi.c1.n':'7-layer chocolate cake','mi.c1.d':'Seven layers of cake and chocolate cream — sliced to order.','mi.c2.n':'Berry cheesecake','mi.c2.d':'Creamy cheesecake topped with fresh berry sauce.',
+ 'mi.c3.n':'Dessert box (6 pieces)','mi.c3.d':'A selection of the bakery’s daily cakes — perfect for guests.',
+ 'mi.w1.n':'Glazed donuts (4 pieces)','mi.w1.d':'Soft donuts with glaze — colours and flavours to choose from.','mi.w2.n':'Chocolate chip cookies (6 pieces)','mi.w2.d':'Soft cookies with chocolate chips, fresh from the oven.',
+ 'mi.d1.n':'Iced latte','mi.d1.d':'Double espresso with milk — served cold.','mi.d2.n':'Fresh orange juice','mi.d2.d':'100% natural juice — squeezed to order.','mi.d3.n':'Bakery signature drink','mi.d3.d':'A refreshing cold drink chosen by the chef.',
+ 'mi.o1.n':'Ramadan offer – full table','mi.o1.d':'2 sourdough loaves + feteer + a small cake + juice.','mi.o2.n':'Healthy bread bundle','mi.o2.d':'1 barley + 1 whole-grain + 1 seeds loaf — the healthy bread box.'
+},
+ar:{
+ 'tb.loc':'مرسى مطروح – علم الروم','tb.hours':'يوميًا من ٩:٠٠ ص حتى ٤:٠٠ م','tb.promo':'🏷️ خصم ١٠٪ على الطلب اللي يتعمل قبلها بيوم',
+ 'brand.tag':'مخبز صحّي – مرسى مطروح',
+ 'splash.tag':'مخبز حرفي',
+ 'nav.home':'الرئيسية','nav.menu':'المنيو','nav.about':'عن المخبز','nav.contact':'اتصل بنا','nav.cart':'السلة','nav.call':'اتصل بينا الآن',
+ 'campaign.tag':'🍞 مش مجرد عيش — تهتم بصحتك؟ إحنا كمان بنهتم.',
+ 'hero.kicker':'مخبز حرفي • طازة كل يوم','hero.sub':'حلو وحادق… من الفرن على بابك',
+ 'hero.lead':'خبز ساوردو طبيعي، وخبز الشعير وخبز الحبة الكاملة (الخبز الصحّي)، ساندويتشات، كرواسون، كيك وحلويات ومشروبات. اطلب أونلاين بضغطة واحدة ويوصلك طازة زي ما خرج من الفرن.',
+ 'hero.cta1':'اطلب الآن','hero.cta2':'اتصل بينا','hero.cta3':'واتساب',
+ 'pill.1':'🌾 خبز الشعير','pill.2':'🌰 خبز الحبة الكاملة','pill.3':'🥖 ساوردو طبيعي','pill.4':'🚚 توصيل في نفس اليوم','pill.5':'🏷️ خصم ١٠٪ على الطلب قبلها بيوم',
+ 'f1t':'فرن حرفي طبيعي','f1p':'خبز ساوردو بتخمير طبيعي ١٠٠٪ لمدة ٢٤ ساعة، من غير أي إضافات صناعية.',
+ 'f2t':'خبز صحّي','f2p':'خبز الشعير والحبة الكاملة والخبز المتعدد الحبوب — لمائدة متوازنة.',
+ 'f3t':'حلو وحادق','f3p':'من الكيك والتشيز كيك لحد الفطير والساندويتشات — كل حاجة في مكان واحد.',
+ 'f4t':'اطلب في ثانية','f4p':'اختار من المنيو، اضغط «اطلب الآن» والطلب بيتبعت لواتساب المخبز فورًا.',
+ 'h.kicker':'مخبز صحّي','h.title':'كل أنواع الخبز بالشعير والحبة الكاملة',
+ 'h.line':'كل أنواع الخبز بالشعير وخبز الحبة الكاملة — الخبز الصحّي عمومًا — متاحة عندنا هنا.',
+ 'h.l1':'خبز الشعير (دقيق شعير ١٠٠٪) — خفيف وغني بالألياف','h.l2':'خبز الحبة الكاملة — بيشبع لمدة أطول',
+ 'h.l3':'خبز النخالة والشوفان والحبوب والبذور','h.l4':'بدون سكر مضاف · بدون مواد حافظة · متاح قليل الملح',
+ 'menu.kicker':'منيو المخبز','menu.title':'المنيو','menu.desc':'اختار الأصناف اللي تحبها واضغط «أضف» — السلة هتحسب الإجمالي لوحدها، وبعدها اضغط «اطلب الآن» لتحويل الطلب لواتساب المخبز.',
+ 'menu.note':'في الأصناف عندنا: كل أنواع الخبز بالشعير وخبز الحبة الكاملة (الخبز الصحّي عمومًا) متاحة — اسألنا عن خبز اليوم الصحّي.',
+ 'about.kicker':'عن المخبز','about.title':'عن المخبز',
+ 'about.p1':'في SWEET & SOUR DOUGH بنعمل الخبز بطريقة طبيعية ١٠٠٪ — عجينة ساوردو بتتخمر بهدوء وتتحمّص في الفرن الحجري، لحد ما تطلع القشرة مقرمشة والقلب طري. ومع الخبز، بنقدّم كيك وحلويات وساندويتشات حادقة ومشروبات، كلها تُحضّر طازة كل يوم.',
+ 'about.p2':'إحنا في قلب مرسى مطروح – علم الروم، والعجّانين عندنا بيسهروا الليل عشان تصحى تلاقي المخبوزات ساخنة. الطلب أونلاين سهل: اختار، ابعت على واتساب، وإحنا نجهّز ونوصّل.',
+ 'owner.role':'المالك – SWEET & SOUR DOUGH',
+ 'ap.1':'🔥 خبز طازة يوميًا','ap.2':'🕘 ٩:٠٠ ص – ٤:٠٠ م','ap.3':'📍 علم الروم – مرسى مطروح','ap.4':'🌙 عروض رمضان',
+ 'contact.kicker':'اتصل بنا','contact.title':'اتصل بنا','contact.desc':'محتاج تسأل على صنف أو تحجز صينية كبيرة؟ كلّمنا على طول — وإحنا في الخدمة من ٩ الصبح لـ ٤ العصر.',
+ 'c.phone':'التليفون','c.owner':'محمد عبد الفتاح محمد – المالك','c.addr':'العنوان','c.addr2':'مرسى مطروح – علم الروم',
+ 'c.map':'افتح الموقع على الخريطة','c.hours':'مواعيد العمل','c.hours2':'يوميًا: ٩:٠٠ ص – ٤:٠٠ م','c.hours3':'عروض رمضان متاحة',
+ 'c.wa':'واتساب','c.wa2':'أسرع طريقة لتأكيد الطلب',
+ 'band.title':'جاهز تجرّب أحلى ساوردو في مطروح؟','band.desc':'اطلب دلوقتي وسيب الباقي علينا — الطلب بيوصل طازة زي ما خرج من الفرن.',
+ 'ft.about':'مخبز حرفي في مرسى مطروح – علم الروم. حلو وحادق، خبز ساوردو طبيعي، وخبز الشعير والحبة الكاملة الصحّي، وحلويات ومشروبات طازة كل يوم.',
+ 'ft.owner':'المالك: محمد عبد الفتاح محمد','ft.links':'روابط سريعة','ft.contact':'تواصل','ft.wa':'واتساب','ft.fb':'فيسبوك',
+ 'ft.rights':'جميع الحقوق محفوظة | مرسى مطروح، مصر',
+ 'cart.title':'سلة الطلبات','cart.total':'الإجمالي','cart.order':'اطلب الآن','cart.continue':'أكمل التسوق','cur':'ج.م',
+ 'cart.empty':'السلة فاضية','cart.empty2':'اختار من المنيو وابدأ طلبك',
+ 'm.title':'إتمام الطلب','m.sub':'املأ البيانات واضغط «إرسال الطلب على واتساب» — هيجهّز لك رسالة الطلب كاملة وتبعتها للمخبز بضغطة واحدة.',
+ 'm.name':'الاسم *','m.namePh':'اسمك الكريم','m.phone':'رقم الموبايل *','m.mode':'طريقة الاستلام','m.mode1':'توصيل للعنوان','m.mode2':'استلام من المخبز',
+ 'm.date':'التاريخ المفضّل','m.dateHint':'اختار بكرة أو بعده واخد خصم ١٠٪ — اطلب النهارده واستلم بكرة.',
+ 'm.addr':'العنوان بالتفصيل','m.addrPh':'الشارع، علامة مميزة، رقم العمارة/الدور...','m.notes':'ملاحظات على الطلب','m.notesPh':'مثال: من غير سمسم، الكيك يكتب عليه اسم...',
+ 'm.pay':'طريقة الدفع','m.pay1':'كاش عند الاستلام','m.pay2':'فودافون كاش / إنستاباي',
+ 'm.err':'من فضلك اكتب الاسم ورقم الموبايل بشكل صحيح.','m.send':'إرسال الطلب على واتساب','m.copy':'نسخ نص الطلب',
+ 'm.hint':'ملاحظة: الطلب بيتحوّل لرسالة جاهزة على واتساب رقم المخبز — لو الواتساب مش متاح، استخدم «نسخ نص الطلب» وابعته رسالة أو كلّمنا على التليفون.',
+ 'lang.title':'اختار اللغة',
+ 't.add':'+ أضف','t.inCart':'في السلة','t.remove':'حذف',
+ 'o.title':'طلب جديد من موقع SWEET & SOUR DOUGH','o.name':'الاسم','o.phone':'الموبايل','o.mode':'طريقة الاستلام','o.addr':'العنوان','o.date':'التاريخ',
+ 'o.pay':'طريقة الدفع','o.details':'تفاصيل الطلب','o.subtotal':'الإجمالي قبل الخصم','o.discount':'خصم الطلب المسبق (١٠٪)','o.total':'الإجمالي','o.notes':'ملاحظات','o.time':'وقت الطلب','o.bakery':'المخبز: مرسى مطروح – علم الروم',
+ 'o.delivery':'توصيل للعنوان','o.pickup':'استلام من المخبز','o.cash':'كاش عند الاستلام','o.wallet':'فودافون كاش / إنستاباي',
+ 'a.added':'✅ تمت الإضافة: ','a.cleared':'🗑️ تم تفريغ السلة','a.emptyCart':'⚠️ السلة فاضية — اختار أصناف الأول',
+ 'a.copied':'📋 تم نسخ نص الطلب — ابعته لنا على واتساب','a.copyPrompt':'انسخ نص الطلب:',
+ 'a.sent':'💬 تم تجهيز رسالة الطلب على واتساب','a.copiedTitle':'نص الطلب','a.ok':'تم الإرسال',
+ 'a.notice':'جهّزنا رسالة الطلب على واتساب (%s صنف – إجمالي %t).<br>لو الواتساب مش متاح، كلّمنا على','a.follow':'تابعونا على',
+ 'tag.popular':'الأكثر طلبًا','tag.health':'صحّي','tag.fresh':'طازة الصبح','tag.occasions':'مناسبات','tag.new':'جديد','tag.offer':'عرض',
+ 'cat.all':'كل الأصناف','cat.healthy':'خبز صحّي','cat.bread':'خبز ساوردو','cat.pastry':'معجنات وفطير',
+ 'cat.sandwich':'ساندويتش حادق','cat.cake':'كيك','cat.sweet':'حلويات','cat.drinks':'مشروبات','cat.offers':'عروض رمضان',
+ 'mi.h1.n':'خبز الشعير (شعير ١٠٠٪)','mi.h1.d':'مخبوز بدقيق الشعير الصافي — خفيف على المعدة وغني بالألياف.',
+ 'mi.h2.n':'رغيف الحبة الكاملة','mi.h2.d':'دقيق الحبة الكاملة بالنخالة — بيشبع لمدة أطول.',
+ 'mi.h3.n':'رغيف البذور والحبوب','mi.h3.d':'شوفان وبذور الكتان والسمسم وعباد الشمس في قلب طري من الحبوب الكاملة.',
+ 'mi.b1.n':'ساوردو كلاسيك','mi.b1.d':'رغيف ساوردو بخميرة طبيعية ١٠٠٪ وقشرة مقرمشة.',
+ 'mi.b2.n':'باجيت فرنساوي','mi.b2.d':'باجيت طويلة طرية من بره ومقرمشة من جوه.','mi.b3.n':'باجيت النخالة والشوفان','mi.b3.d':'باجيت نص دقيق أسمر بالنخالة والشوفان — أخف من الخبز الأبيض.',
+ 'mi.p1.n':'كرواسون بالزبدة','mi.p1.d':'كرواسون فرنساوي بيتبعتر بالطبقات — طازة كل الصبح.',
+ 'mi.p2.n':'كرواسون بالشوكولاتة','mi.p2.d':'محشو كريمة شوكولاتة غنية.','mi.p3.n':'فطير مشلتت سادة','mi.p3.d':'فطير بلدي بالطبقات الذهبية — مع عسل أو جبنة.',
+ 'mi.s1.n':'ساندويتش ساوردو دجاج','mi.s1.d':'صدور دجاج مشوية، خس، طماطم وصوص المخبز على خبز ساوردو.',
+ 'mi.s2.n':'ساندويتش تونة ساوردو','mi.s2.d':'تونة بزيت الزيتون، خيار مخلل ومايونيز.','mi.s3.n':'توست جبنة مشكل','mi.s3.d':'موتزاريلا، شيدر ورومي مسخّنين على خبز الساوردو.',
+ 'mi.c1.n':'كيك شوكولاتة ٧ طبقات','mi.c1.d':'سبع طبقات كيك وكريمة شوكولاتة — يُقطع بالطلب.','mi.c2.n':'تشيز كيك بالبيري','mi.c2.d':'تشيز كيك كريمي مغطى بصوص البيري الطازة.',
+ 'mi.c3.n':'بوكس حلويات مشكلة (٦ قطع)','mi.c3.d':'تشكيلة من كيك المخبز اليومي — مناسبة للضيافة.',
+ 'mi.w1.n':'دونتس مزجّج (٤ قطع)','mi.w1.d':'دونتس طري مغطى بالمزجّج — بالألوان والمذاقات.','mi.w2.n':'كوكيز شوكولاتة تشيب (٦ قطع)','mi.w2.d':'كوكيز طري بالشوكولاتة الجاهزة في الفرن.',
+ 'mi.d1.n':'قهوة لاتيه ساقعة','mi.d1.d':'إسبريسو مزدوج مع حليب — تُقدَّم باردة.','mi.d2.n':'عصير برتقال طازج','mi.d2.d':'عصير طبيعي ١٠٠٪ — يُعصر بالطلب.','mi.d3.n':'مشروب المخبز المميز','mi.d3.d':'مشروب بارد منعش من اختيار الشيف.',
+ 'mi.o1.n':'عرض رمضان – سفرة كاملة','mi.o1.d':'٢ رغيف ساوردو + فطير + كيك صغير + عصير.','mi.o2.n':'باكيت الخبز الصحّي','mi.o2.d':'رغيف شعير + رغيف حبة كاملة + رغيف بذور — بوكس الخبز الصحّي.'
+},
+fr:{
+ 'tb.loc':'Marsa Matrouh – Alam El Roum','tb.hours':'Tous les jours 9h00 – 16h00','tb.promo':'🏷️ 10 % de réduction sur les précommandes passées la veille',
+ 'brand.tag':'Boulangerie saine – Marsa Matrouh',
+ 'splash.tag':'BOULANGERIE ARTISANALE',
+ 'nav.home':'Accueil','nav.menu':'Carte','nav.about':'À propos','nav.contact':'Contact','nav.cart':'Panier','nav.call':'Appelez-nous',
+ 'campaign.tag':'🍞 Pas juste du pain — Vous prenez soin de votre santé ? Nous aussi.',
+ 'hero.kicker':'Boulangerie artisanale • frais chaque jour','hero.sub':'Sucré et salé — du four à votre porte',
+ 'hero.lead':'Pain au levain naturel, pains d’orge et complets (le pain sain), sandwichs, croissants, gâteaux, desserts et boissons. Commandez en ligne en un clic, c’est livré aussi frais qu’à la sortie du four.',
+ 'hero.cta1':'Commander','hero.cta2':'Appelez-nous','hero.cta3':'WhatsApp',
+ 'pill.1':'🌾 Pain d’orge','pill.2':'🌰 Pain complet','pill.3':'🥖 Levain naturel','pill.4':'🚚 Livraison le jour même','pill.5':'🏷️ 10 % de réduction en précommande — commandez la veille',
+ 'f1t':'Four artisanal naturel','f1p':'Levain naturel 100 % fermenté 24 heures, sans additifs industriels.',
+ 'f2t':'Pain sain','f2p':'Pains d’orge, complets et multicéréales — pour une table équilibrée.',
+ 'f3t':'Sucré et salé','f3p':'Des gâteaux et cheesecakes aux feuilletés salés et sandwichs — tout au même endroit.',
+ 'f4t':'Commander en un clic','f4p':'Choisissez vos articles, appuyez sur « Commander » : la commande part sur notre WhatsApp.',
+ 'h.kicker':'Boulangerie saine','h.title':'Tous les pains d’orge et complets',
+ 'h.line':'Tous les types de pain d’orge et de pain complet — le pain sain en général — sont disponibles ici.',
+ 'h.l1':'Pain d’orge (farine d’orge 100 %) — léger et riche en fibres','h.l2':'Pain complet — vous tient rassasié plus longtemps',
+ 'h.l3':'Pains au son, à l’avoine, aux graines et multicéréales','h.l4':'Sans sucre ajouté · Sans conservateurs · Options pauvres en sel',
+ 'menu.kicker':'Notre carte','menu.title':'La carte','menu.desc':'Choisissez ce qui vous plaît et appuyez sur « Ajouter » — le panier calcule tout, puis appuyez sur « Commander » pour l’envoyer sur notre WhatsApp.',
+ 'menu.note':'Dans nos produits : tous les types de pain d’orge et de pain complet (le pain sain en général) sont disponibles — demandez-nous la cuisson saine du jour.',
+ 'about.kicker':'À propos','about.title':'La boulangerie',
+ 'about.p1':'Chez SWEET & SOUR DOUGH nous travaillons de façon 100 % naturelle. Notre pâte au levain fermente lentement et cuit dans un four à pierre jusqu’à obtenir une croûte croustillante et une mie tendre. Avec le pain, nous servons gâteaux, desserts, sandwichs salés et boissons — tout préparé frais chaque jour.',
+ 'about.p2':'Nous sommes au cœur de Marsa Matrouh – Alam El Roum, et nos boulangers travaillent toute la nuit pour que vous vous réveilliez avec du pain chaud. Commander en ligne est simple : choisissez, envoyez sur WhatsApp, nous préparons et livrons.',
+ 'owner.role':'Propriétaire – SWEET & SOUR DOUGH',
+ 'ap.1':'🔥 Pain frais chaque jour','ap.2':'🕘 9h00 – 16h00','ap.3':'📍 Alam El Roum – Marsa Matrouh','ap.4':'🌙 Offres Ramadan',
+ 'contact.kicker':'Contactez-nous','contact.title':'Contactez-nous','contact.desc':'Une question sur un produit ou une grande plaque à réserver ? Appelez-nous, nous sommes là de 9h à 16h.',
+ 'c.phone':'Téléphone','c.owner':'Mohamed Abd El Fattah Mohamed – Propriétaire','c.addr':'Adresse','c.addr2':'Marsa Matrouh – Alam El Roum',
+ 'c.map':'Ouvrir sur la carte','c.hours':'Horaires','c.hours2':'Tous les jours : 9h00 – 16h00','c.hours3':'Offres Ramadan disponibles',
+ 'c.wa':'WhatsApp','c.wa2':'Le moyen le plus rapide de confirmer une commande',
+ 'band.title':'Prêt à goûter le meilleur levain de Matrouh ?','band.desc':'Commandez maintenant et laissez-nous faire — livré aussi frais qu’à la sortie du four.',
+ 'ft.about':'Boulangerie artisanale à Marsa Matrouh – Alam El Roum. Sucré et salé, levain naturel, pain d’orge et complet, desserts et boissons frais chaque jour.',
+ 'ft.owner':'Propriétaire : Mohamed Abd El Fattah Mohamed','ft.links':'Liens rapides','ft.contact':'Nous joindre','ft.wa':'WhatsApp','ft.fb':'Facebook',
+ 'ft.rights':'Tous droits réservés | Marsa Matrouh, Égypte',
+ 'cart.title':'Votre commande','cart.total':'Total','cart.order':'Commander','cart.continue':'Continuer mes achats','cur':'EGP',
+ 'cart.empty':'Votre panier est vide','cart.empty2':'Choisissez un article dans la carte pour commencer',
+ 'm.title':'Finaliser la commande','m.sub':'Remplissez vos informations et appuyez sur « Envoyer sur WhatsApp » — nous créons le message complet et l’envoyons à la boulangerie en un clic.',
+ 'm.name':'Nom *','m.namePh':'Votre nom','m.phone':'Numéro de mobile *','m.mode':'Mode de retrait','m.mode1':'Livraison à l’adresse','m.mode2':'Retrait à la boulangerie',
+ 'm.date':'Date souhaitée','m.dateHint':'Choisissez demain ou plus tard et obtenez 10 % de réduction — commandez aujourd’hui, recevez demain.',
+ 'm.addr':'Adresse complète','m.addrPh':'Rue, point de repère, immeuble / étage...','m.notes':'Remarques','m.notesPh':'ex. sans sésame, écrire un prénom sur le gâteau...',
+ 'm.pay':'Mode de paiement','m.pay1':'Espèces à la livraison','m.pay2':'Vodafone Cash / InstaPay',
+ 'm.err':'Merci d’indiquer un nom et un numéro de mobile valides.','m.send':'Envoyer sur WhatsApp','m.copy':'Copier le texte de la commande',
+ 'm.hint':'Remarque : la commande devient un message WhatsApp prêt pour le numéro de la boulangerie — si WhatsApp n’est pas disponible, utilisez « Copier le texte de la commande » ou appelez-nous.',
+ 'lang.title':'Choisissez votre langue',
+ 't.add':'+ Ajouter','t.inCart':'Dans le panier','t.remove':'Supprimer',
+ 'o.title':'Nouvelle commande du site SWEET & SOUR DOUGH','o.name':'Nom','o.phone':'Mobile','o.mode':'Mode de retrait','o.addr':'Adresse','o.date':'Date',
+ 'o.pay':'Paiement','o.details':'Détail de la commande','o.subtotal':'Sous-total','o.discount':'Remise précommande (10 %)','o.total':'Total','o.notes':'Remarques','o.time':'Heure de la commande','o.bakery':'Boulangerie : Marsa Matrouh – Alam El Roum',
+ 'o.delivery':'Livraison à l’adresse','o.pickup':'Retrait à la boulangerie','o.cash':'Espèces à la livraison','o.wallet':'Vodafone Cash / InstaPay',
+ 'a.added':'✅ Ajouté : ','a.cleared':'🗑️ Panier vidé','a.emptyCart':'⚠️ Votre panier est vide — choisissez d’abord des articles',
+ 'a.copied':'📋 Texte copié — envoyez-le nous sur WhatsApp','a.copyPrompt':'Copiez le texte de la commande :',
+ 'a.sent':'💬 Message de commande prêt sur WhatsApp','a.copiedTitle':'Texte de la commande','a.ok':'Envoyé',
+ 'a.notice':'Nous avons préparé le message WhatsApp (%s articles – total %t).<br>Si WhatsApp n’est pas disponible, appelez-nous au','a.follow':'Suivez-nous sur',
+ 'tag.popular':'Le plus demandé','tag.health':'Sain','tag.fresh':'Frais du matin','tag.occasions':'Occasions','tag.new':'Nouveau','tag.offer':'Offre',
+ 'cat.all':'Tous les articles','cat.healthy':'Pain sain','cat.bread':'Pain au levain','cat.pastry':'Viennoiseries & feteer',
+ 'cat.sandwich':'Sandwichs salés','cat.cake':'Gâteaux','cat.sweet':'Desserts','cat.drinks':'Boissons','cat.offers':'Offres Ramadan',
+ 'mi.h1.n':'Pain d’orge (100 % orge)','mi.h1.d':'Cuit à la farine d’orge pure — léger à digérer et riche en fibres.',
+ 'mi.h2.n':'Pain complet','mi.h2.d':'Farine complète avec son — vous tient rassasié plus longtemps.',
+ 'mi.h3.n':'Pain aux graines et multicéréales','mi.h3.d':'Avoine, lin, sésame et tournesol dans une mie complète bien tendre.',
+ 'mi.b1.n':'Pain au levain classique','mi.b1.d':'Levain naturel 100 % avec une croûte croustillante.',
+ 'mi.b2.n':'Baguette française','mi.b2.d':'Longue baguette, tendre à l’intérieur et croquante à l’extérieur.','mi.b3.n':'Baguette son & avoine','mi.b3.d':'Baguette semi-complète au son et à l’avoine — plus légère que le pain blanc.',
+ 'mi.p1.n':'Croissant au beurre','mi.p1.d':'Croissant français feuilleté — cuit chaque matin.',
+ 'mi.p2.n':'Croissant au chocolat','mi.p2.d':'Garni d’une crème au chocolat riche.','mi.p3.n':'Feteer meshaltet nature','mi.p3.d':'Feuilleté égyptien doré — à servir avec miel ou fromage.',
+ 'mi.s1.n':'Sandwich poulet au levain','mi.s1.d':'Blanc de poulet grillé, laitue, tomate et sauce maison sur pain au levain.',
+ 'mi.s2.n':'Sandwich thon au levain','mi.s2.d':'Thon à l’huile d’olive, cornichons et mayonnaise.','mi.s3.n':'Toast aux fromages','mi.s3.d':'Mozzarella, cheddar et roumi fondus sur pain au levain.',
+ 'mi.c1.n':'Gâteau chocolat 7 couches','mi.c1.d':'Sept couches de gâteau et de crème au chocolat — découpé à la demande.','mi.c2.n':'Cheesecake aux fruits rouges','mi.c2.d':'Cheesecake crémeux nappé d’un coulis de fruits rouges frais.',
+ 'mi.c3.n':'Boîte de desserts (6 pièces)','mi.c3.d':'Une sélection des gâteaux du jour — parfaite pour vos invités.',
+ 'mi.w1.n':'Donuts glacés (4 pièces)','mi.w1.d':'Donuts moelleux glacés — couleurs et parfums au choix.','mi.w2.n':'Cookies aux pépites (6 pièces)','mi.w2.d':'Cookies moelleux aux pépites de chocolat, tout juste sortis du four.',
+ 'mi.d1.n':'Latte glacé','mi.d1.d':'Double espresso avec du lait — servi froid.','mi.d2.n':'Jus d’orange frais','mi.d2.d':'Jus 100 % naturel — pressé à la commande.','mi.d3.n':'Boisson signature','mi.d3.d':'Une boisson froide rafraîchissante choisie par le chef.',
+ 'mi.o1.n':'Offre Ramadan – table complète','mi.o1.d':'2 pains au levain + feteer + un petit gâteau + un jus.','mi.o2.n':'Pack pain sain','mi.o2.d':'1 pain d’orge + 1 pain complet + 1 pain aux graines — la boîte du pain sain.'
+}
+};
+
+/* ------------------------------ menu data ------------------------------ */
+const MENU = [
+ {cat:'healthy', k:'h1', price:70,  img:'barley-bread.jpg',   tag:'health'},
+ {cat:'healthy', k:'h2', price:75,  img:'wholegrain-loaf.jpg',tag:'health'},
+ {cat:'healthy', k:'h3', price:85,  img:'seeds-bread.jpg',    tag:'health'},
+ {cat:'bread',   k:'b1', price:60,  img:'loaf.jpg',           tag:'popular'},
+ {cat:'bread',   k:'b2', price:45,  img:'hero-bread.jpg',     tag:''},
+ {cat:'bread',   k:'b3', price:65,  img:'bread2.jpg',         tag:'health'},
+ {cat:'pastry',  k:'p1', price:35,  img:'croissant.jpg',      tag:'fresh'},
+ {cat:'pastry',  k:'p2', price:45,  img:'pastry.jpg',         tag:''},
+ {cat:'pastry',  k:'p3', price:55,  img:'bakery.jpg',         tag:''},
+ {cat:'sandwich',k:'s1', price:95,  img:'sandwich.jpg',       tag:'popular'},
+ {cat:'sandwich',k:'s2', price:80,  img:'sandwich.jpg',       tag:''},
+ {cat:'sandwich',k:'s3', price:75,  img:'bread2.jpg',         tag:''},
+ {cat:'cake',    k:'c1', price:320, img:'cake.jpg',           tag:'occasions'},
+ {cat:'cake',    k:'c2', price:280, img:'cheesecake.jpg',     tag:''},
+ {cat:'cake',    k:'c3', price:180, img:'display.jpg',        tag:''},
+ {cat:'sweet',   k:'w1', price:90,  img:'donuts.jpg',         tag:''},
+ {cat:'sweet',   k:'w2', price:110, img:'cookies.jpg',        tag:''},
+ {cat:'drinks',  k:'d1', price:55,  img:'coffee.jpg',         tag:''},
+ {cat:'drinks',  k:'d2', price:45,  img:'juice.jpg',          tag:''},
+ {cat:'drinks',  k:'d3', price:65,  img:'drinks.jpg',         tag:'new'},
+ {cat:'offers',  k:'o1', price:450, img:'display.jpg',        tag:'offer'},
+ {cat:'offers',  k:'o2', price:220, img:'wholegrain-loaf.jpg',tag:'health'}
+];
+const CATS = ['all','healthy','bread','pastry','sandwich','cake','sweet','drinks','offers'];
+
+/* ------------------------------ state ------------------------------ */
+let LANG = 'en';
+let activeCat = 'all';
+let cart = {};
+try { cart = JSON.parse(localStorage.getItem('ssd_cart') || '{}') || {}; } catch(e){ cart = {}; }
+const save = () => { try { localStorage.setItem('ssd_cart', JSON.stringify(cart)); } catch(e){} };
+const tr = k => (I18N[LANG] && I18N[LANG][k]) || I18N.en[k] || k;
+const itemName = it => tr('mi.'+it.k+'.n');
+const itemDesc = it => tr('mi.'+it.k+'.d');
+const byKey = k => MENU.find(i => i.k === k);
+const EGP = n => new Intl.NumberFormat('en-US',{maximumFractionDigits:0}).format(n) + ' ' + tr('cur');
+const count = () => Object.values(cart).reduce((a,b)=>a+b,0);
+const total = () => Object.keys(cart).reduce((s,k)=>{ const it = byKey(k); return it ? s + cart[k]*it.price : s; }, 0);
+const todayStr = () => new Date().toISOString().slice(0,10);
+const tomorrowStr = () => { const d = new Date(); d.setDate(d.getDate()+1); return d.toISOString().slice(0,10); };
+const isPreorder = () => {
+  const el = document.getElementById('cDate');
+  const v = el && el.value;
+  if(!v) return false;
+  const chosen = new Date(v+'T00:00:00');
+  const today = new Date(); today.setHours(0,0,0,0);
+  return Math.round((chosen - today)/86400000) >= 1;
+};
+const preorderDiscount = () => isPreorder() ? Math.round(total()*0.1) : 0;
+const discountedTotal = () => total() - preorderDiscount();
+const cartLines = () => MENU.filter(i => cart[i.k]).map(i => ({i, q:cart[i.k]}));
+const IMG = n => 'img/' + n;
+
+/* ------------------------------ render ------------------------------ */
+function renderTabs(){
+  document.getElementById('tabs').innerHTML = CATS.map(c =>
+    '<button class="tab ' + (c===activeCat?'active':'') + '" onclick="setCat(\'' + c + '\')">' + tr('cat.'+c) + '</button>').join('');
+}
+function setCat(c){ activeCat = c; renderTabs(); renderGrid(); }
+function renderGrid(){
+  const list = MENU.filter(i => activeCat==='all' || i.cat===activeCat);
+  document.getElementById('grid').innerHTML = list.map(i => {
+    const q = cart[i.k] || 0;
+    return '<article class="card">' +
+      '<div class="thumb"><img src="' + IMG(i.img) + '" alt="' + itemName(i).replace(/"/g,'') + '">' +
+      (i.tag ? '<span class="chip ' + (i.tag==='health'?'health':'') + '">' + tr('tag.'+i.tag) + '</span>' : '') + '</div>' +
+      '<div class="body"><h3>' + itemName(i) + '</h3><p class="desc">' + itemDesc(i) + '</p>' +
+      '<div class="row"><span class="price">' + EGP(i.price) + '</span>' +
+      '<button class="add ' + (q?'done':'') + '" onclick="add(\'' + i.k + '\')">' + (q ? tr('t.inCart') + ' (' + q + ')' : tr('t.add')) + '</button>' +
+      '</div></div></article>';
+  }).join('');
+}
+function renderCart(){
+  const box = document.getElementById('cartItems');
+  if(!count()){
+    box.innerHTML = '<div class="empty">🛒<br>' + tr('cart.empty') + '<br><span style="font-size:13px">' + tr('cart.empty2') + '</span></div>';
+    return;
+  }
+  box.innerHTML = cartLines().map(({i,q}) =>
+    '<div class="ci"><img src="' + IMG(i.img) + '" alt="">' +
+    '<div class="info"><b>' + itemName(i) + '</b><span class="pp">' + EGP(i.price) + ' × ' + q + ' = <b>' + EGP(i.price*q) + '</b></span></div>' +
+    '<div style="display:flex;flex-direction:column;gap:6px;align-items:center">' +
+      '<div class="qty"><button onclick="minus(\'' + i.k + '\')" aria-label="-">−</button><span>' + q + '</span><button onclick="plus(\'' + i.k + '\')" aria-label="+">+</button></div>' +
+      '<button onclick="removeItem(\'' + i.k + '\')" style="color:#C0392B;font-size:12px;font-weight:700">' + tr('t.remove') + '</button>' +
+    '</div></div>').join('');
+}
+function syncUI(){
+  const n = count();
+  document.getElementById('badge').textContent = n;
+  document.getElementById('fabN').textContent = n;
+  document.getElementById('totVal').textContent = EGP(total());
+  document.getElementById('checkoutBtn').disabled = n === 0;
+  document.getElementById('checkoutBtn').style.opacity = n === 0 ? .55 : 1;
+}
+function add(k, silent){
+  cart[k] = (cart[k]||0) + 1; save(); syncUI(); renderGrid();
+  if(!silent){ toast(tr('a.added') + itemName(byKey(k))); renderCart(); }
+}
+function minus(k){ if(!cart[k]) return; cart[k]--; if(cart[k]<=0) delete cart[k]; save(); syncUI(); renderGrid(); renderCart(); }
+function plus(k){ add(k, true); renderCart(); }
+function removeItem(k){ delete cart[k]; save(); syncUI(); renderGrid(); renderCart(); }
+function openCart(){
+  renderCart(); syncUI();
+  document.getElementById('overlay').classList.add('show');
+  document.getElementById('drawer').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeAll(){
+  document.getElementById('overlay').classList.remove('show');
+  document.getElementById('drawer').classList.remove('open');
+  document.getElementById('orderModal').classList.remove('open');
+  document.getElementById('langpop').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function toast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  clearTimeout(window.__tt); window.__tt = setTimeout(()=>t.classList.remove('show'), 2400);
+}
+
+/* ------------------------------ order ------------------------------ */
+function orderText(){
+  const name = (document.getElementById('cName').value||'').trim();
+  const phone = (document.getElementById('cPhone').value||'').trim();
+  const mode = document.getElementById('cMode').value;
+  const addr = (document.getElementById('cAddr').value||'').trim();
+  const date = (document.getElementById('cDate').value||'').trim();
+  const notes = (document.getElementById('cNotes').value||'').trim();
+  const pay = document.getElementById('cPay').value;
+  const stamp = new Date().toLocaleString(LANG==='ar'?'ar-EG':(LANG==='fr'?'fr-FR':'en-GB'),{dateStyle:'short',timeStyle:'short'});
+  const sub = total();
+  const pre = isPreorder();
+  const disc = preorderDiscount();
+  let t = '';
+  t += tr('o.title') + '\n--------------------------------\n';
+  t += tr('o.name') + ': ' + name + '\n';
+  t += tr('o.phone') + ': ' + phone + '\n';
+  t += tr('o.mode') + ': ' + (mode==='pickup' ? tr('o.pickup') : tr('o.delivery')) + '\n';
+  if(addr) t += tr('o.addr') + ': ' + addr + '\n';
+  if(date) t += tr('o.date') + ': ' + date + '\n';
+  t += tr('o.pay') + ': ' + (pay==='wallet' ? tr('o.wallet') : tr('o.cash')) + '\n';
+  t += '--------------------------------\n' + tr('o.details') + ':\n';
+  cartLines().forEach(({i,q}) => { t += '• ' + itemName(i) + ' × ' + q + ' = ' + (i.price*q) + ' ' + tr('cur') + '\n'; });
+  if(pre){
+    t += '--------------------------------\n';
+    t += tr('o.subtotal') + ': ' + sub + ' ' + tr('cur') + '\n';
+    t += tr('o.discount') + ': -' + disc + ' ' + tr('cur') + '\n';
+  }
+  t += '--------------------------------\n' + tr('o.total') + ': ' + (sub-disc) + ' ' + tr('cur') + '\n';
+  if(notes) t += tr('o.notes') + ': ' + notes + '\n';
+  t += tr('o.time') + ': ' + stamp + '\n' + tr('o.bakery') + '\n';
+  return t;
+}
+function renderOrderSummary(){
+  const sub = total();
+  const pre = isPreorder();
+  const disc = preorderDiscount();
+  let html = cartLines().map(({i,q}) => '<div><span>' + itemName(i) + ' × ' + q + '</span><span>' + EGP(i.price*q) + '</span></div>').join('');
+  if(pre){
+    html += '<div><span>' + tr('o.subtotal') + '</span><span>' + EGP(sub) + '</span></div>';
+    html += '<div><span>' + tr('o.discount') + '</span><span>-' + EGP(disc) + '</span></div>';
+  }
+  html += '<div class="g"><span>' + tr('cart.total') + '</span><span>' + EGP(sub - disc) + '</span></div>';
+  document.getElementById('orderSummary').innerHTML = html;
+}
+function openOrder(){
+  if(!count()){ toast(tr('a.emptyCart')); return; }
+  document.getElementById('overlay').classList.add('show');
+  document.getElementById('orderModal').classList.add('open');
+  const dateEl = document.getElementById('cDate');
+  if(dateEl){ dateEl.min = todayStr(); if(!dateEl.value) dateEl.value = tomorrowStr(); }
+  renderOrderSummary();
+  document.body.style.overflow = 'hidden';
+}
+document.addEventListener('change', e => {
+  if(e.target && e.target.id === 'cMode'){
+    document.getElementById('addrWrap').classList.toggle('hidden', e.target.value === 'pickup');
+  }
+  if(e.target && e.target.id === 'cDate'){
+    renderOrderSummary();
+  }
+});
+function sendOrder(mode){
+  const name = (document.getElementById('cName').value||'').trim();
+  const phone = (document.getElementById('cPhone').value||'').trim();
+  const err = document.getElementById('orderErr');
+  if(name.length < 2 || phone.replace(/[^0-9]/g,'').length < 8){ err.classList.remove('hidden'); return; }
+  err.classList.add('hidden');
+  const msg = orderText();
+  if(mode === 'copy'){
+    navigator.clipboard.writeText(msg).then(()=> toast(tr('a.copied'))).catch(()=>{ window.prompt(tr('a.copyPrompt'), msg); });
+    return;
+  }
+  window.open('https://wa.me/' + PHONE_WA + '?text=' + encodeURIComponent(msg), '_blank');
+  const n = document.getElementById('orderNotice');
+  n.classList.remove('hidden');
+  n.innerHTML = tr('a.notice').replace('%s', count()).replace('%t', EGP(discountedTotal())) +
+    ' <a href="tel:+' + PHONE_WA + '" style="font-weight:800;color:#1D6B3A">' + PHONE_LOCAL + '</a>.' +
+    '<br>' + tr('a.follow') + ' <a href="' + FB_PAGE + '" target="_blank" rel="noopener" style="font-weight:800;color:var(--blue)">Facebook</a>.';
+  toast(tr('a.sent'));
+}
+
+/* ------------------------------ language ------------------------------ */
+function renderLangSwitchers(){
+  const mk = () => ['en','ar','fr'].map(l =>
+    '<button class="' + (l===LANG?'on':'') + '" onclick="setLang(\'' + l + '\')">' +
+    (l==='en'?'EN':(l==='ar'?'ع':'FR')) + '</button>').join('');
+  document.getElementById('langsw').innerHTML = mk();
+  document.getElementById('langswM').innerHTML = mk();
+  document.querySelectorAll('#langpop button').forEach(b => b.classList.toggle('on', b.dataset.lang === LANG));
+  document.getElementById('langpopTitle').textContent = tr('lang.title');
+}
+function setLang(l){
+  LANG = (l==='ar'||l==='fr') ? l : 'en';
+  try { localStorage.setItem('ssd_lang', LANG); localStorage.setItem('ssd_lang_set','1'); } catch(e){}
+  applyLang();
+  document.getElementById('langpop').classList.remove('open');
+}
+function applyLang(){
+  const h = document.documentElement;
+  h.lang = LANG;
+  h.dir = LANG === 'ar' ? 'rtl' : 'ltr';
+  h.className = 'lang-' + LANG;
+  document.querySelectorAll('[data-i18n]').forEach(el => { el.innerHTML = tr(el.dataset.i18n); });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el => { el.placeholder = tr(el.dataset.i18nPh); });
+  document.getElementById('splashTag').textContent = tr('splash.tag');
+  document.title = LANG === 'ar'
+    ? 'SWEET & SOUR DOUGH | مخبز صحّي – خبز الشعير والحبة الكاملة والساوردو'
+    : (LANG === 'fr' ? 'SWEET & SOUR DOUGH | Boulangerie saine – orge, complet & levain'
+                     : 'SWEET & SOUR DOUGH | Healthy Bakery – Sourdough, Barley & Whole-Grain Bread');
+  renderLangSwitchers(); renderTabs(); renderGrid(); renderCart(); syncUI();
+}
+function toggleLangPop(e){ if(e) e.stopPropagation(); document.getElementById('langpop').classList.toggle('open'); }
+/* ------------------------------ splash + init ------------------------------ */
+function enterSite(target){
+  const sp = document.getElementById('splash');
+  sp.classList.add('hide');
+  document.body.classList.remove('splash-open');
+  setTimeout(()=>{ sp.style.display = 'none'; }, 620);
+  if(target){ const el = document.getElementById(target); if(el) setTimeout(()=>el.scrollIntoView({behavior:'smooth'}), 80); }
+}
+function startSlideshow(containerId, interval){
+  const box = document.getElementById(containerId);
+  if(!box) return;
+  const imgs = box.querySelectorAll('img');
+  imgs.forEach(img => { if(img.dataset.img) img.src = IMG(img.dataset.img); });
+  if(imgs.length < 2) return;
+  let i = 0;
+  setInterval(() => {
+    imgs[i].classList.remove('show');
+    i = (i + 1) % imgs.length;
+    imgs[i].classList.add('show');
+  }, interval);
+}
+(function init(){
+  let stored = null;
+  try { stored = localStorage.getItem('ssd_lang_set') ? localStorage.getItem('ssd_lang') : null; } catch(e){}
+  const qs = new URLSearchParams(location.search);
+  LANG = qs.get('lang') || stored || 'en';
+  if(!I18N[LANG]) LANG = 'en';
+
+  const waBase = 'https://wa.me/' + PHONE_WA;
+  document.getElementById('heroWa').href = waBase + '?text=' + encodeURIComponent('SWEET & SOUR DOUGH');
+  document.getElementById('waLink2').href = waBase;
+  document.getElementById('waLink3').href = waBase;
+  document.getElementById('waFab').href = waBase;
+  document.getElementById('mapsLink').href = 'https://www.google.com/maps/search/' + encodeURIComponent('علم الروم مرسى مطروح');
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  document.getElementById('burger').onclick = () => document.getElementById('mobilemenu').classList.toggle('open');
+  document.querySelectorAll('#mobilemenu a').forEach(a => a.onclick = () => document.getElementById('mobilemenu').classList.remove('open'));
+  document.getElementById('splashLang').onclick = toggleLangPop;
+  document.getElementById('splashBurger').onclick = () => { enterSite(); setTimeout(()=>document.getElementById('mobilemenu').classList.add('open'), 400); };
+  document.getElementById('orderModal').addEventListener('click', e => { if(e.target.id === 'orderModal') closeAll(); });
+  document.addEventListener('click', e => { if(!e.target.closest('#langpop') && !e.target.closest('#splashLang')) document.getElementById('langpop').classList.remove('open'); });
+  document.addEventListener('keydown', e => { if(e.key === 'Escape') closeAll(); });
+
+  applyLang();
+  if(qs.get('nosplash') === '1'){ enterSite(); }
+  startSlideshow('splashBg', 3200);
+  startSlideshow('heroPh', 4000);
+})();
+</script>
+</body>
+</html>
